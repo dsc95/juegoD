@@ -1,0 +1,17 @@
+{
+  "arena_id": "arena_001",
+  "region_id": "kanto",
+  "gym_type": "rock",
+  "name": "Arena 1 — Kanto (M0)",
+  "duration_ms": 300000,
+  "size_m": [10, 6],
+  "orbs": {
+    "count": 3,
+    "respawn_ms": 30000,
+    "spawn_points": [[-2, 0], [2, 0], [0, 2.4]]
+  },
+  "boss_team": ["geodude", "graveler", "onix"],
+  "boss_team_fallback_neutral": ["snorlax", "pikachu", "gardevoir"],
+  "medal_on_win": "kanto_medal_01",
+  "notes": "Unidades: longitud en METROS (size_m, spawn_points), tiempo en ms (contrato DATA-ARCHITECTURE §2.1; el engine convierte 1u = 1/100 m). Jefe = TRÍO ROCA (Q3 aprobada por el cliente, 2026-10-18): geodude/graveler/onix. REGLA DE CORTE (del cliente): si el checkpoint sem. 2 va en riesgo, el jefe = trío neutro — el corte es un FLIP (boss_team <- boss_team_fallback_neutral), no un re-trabajo; ambos sets quedaron en data. Matchup real vs los 3 kits (matriz v1): normal->roca = 0.5x (switch forzado de Snorlax, como pidió el cliente); electric<->roca y psychic<->roca = 1x (neutro: los 2x/0.5x eléctricos del brief NO están en el chart oficial — TYPE-MATRIX.md §5). gym_type=rock, alineado al trío (aprobado por el Jefe, 2026-10-18; en canon Kanto el 1.º gimnasio es Brock/roca — el 'fire' del GDD era errata). Cuando existan más kits (M1) el boss_team se sigue cambiando aquí, sin tocar código. Los orbes dan score y aceleran la carga del ultimate (match_rules.score / .ultimate)."
+}

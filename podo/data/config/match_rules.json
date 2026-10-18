@@ -1,0 +1,48 @@
+{
+  "id": "podo.match_rules",
+  "version": "1.0.0",
+  "note": "Reglas GLOBALES de serie (mismas para todos los kits, por diseño GDD §4). Los kits solo aportan contenido (datos de sus habilidades), no reglas.",
+  "tick_ms": 16,
+  "match_duration_ms": 300000,
+  "party_size": 3,
+  "base_speed_m": 3.6,
+  "type_matrix_version": "1.0.0",
+  "speed": {
+    "note": "move_speed de cada kit es MULTIPLICADOR adimensional sobre base_speed_m (m/s, global). Cierres de contrato 31/a8 (2026-10-18): velocidad absoluta = move_speed * base_speed_m (pikachu 1.15*3.6=4.14 m/s, ~2.4 s de cruce de arena; snorlax 0.8*3.6=2.88). El dodge (1.8 m / 200 ms = 9 m/s de ráfaga) está calibrado contra esta base."
+  },
+  "damage": {
+    "dual_type_rule": "producto de los dos pares; clamp al dominio {0, 0.5, 1, 2}: 4 -> 2, 0.25 -> 0.5 (docs/TYPE-MATRIX.md §2)"
+  },
+  "switch": {
+    "cooldown_ms": 4000,
+    "vulnerable_ms": 1500,
+    "vulnerable_damage_mult": 1.5,
+    "note": "C3: switch a 3.9s rechazado+logueado; a 4.1s aceptado; el entrado recibe +50% durante 1.5s"
+  },
+  "dodge": {
+    "distance": 1.8,
+    "duration_ms": 200,
+    "iframes_ms": 160,
+    "cooldown_ms": 1500,
+    "note": "i-frames reales en los primeros iframes_ms (Bloque 1.12)"
+  },
+  "guard": {
+    "damage_reduction": 0.6,
+    "perfect_window_ms": 120,
+    "perfect_reflect_mult": 0.5,
+    "note": "C2: guardia mantenida -60% daño; perfect (timed, ventana 120ms) devuelve 50% y corta combo"
+  },
+  "ultimate": {
+    "charge_per_damage_dealt_pct": 0.6,
+    "charge_per_damage_taken_pct": 0.9,
+    "charge_per_orb_pct": 15,
+    "max": 100,
+    "note": "C6: a 0% no dispara; a 100% dispara, se vacía y recarga. Orbes aceleran la carga (GDD §4.5)."
+  },
+  "score": {
+    "hit": 1,
+    "ko": 30,
+    "orb": 10,
+    "note": "Empate de KOs + tiempo agotado -> decide score (C5). Pesos iniciales; tuneables en data (no en código)."
+  }
+}

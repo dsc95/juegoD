@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "podo://schema/replay",
+  "title": "PODO Replay/Fixture (secuencia de input frames)",
+  "type": "object",
+  "required": ["format", "format_version", "engine", "matrix_version", "seed", "config", "inputs", "tail"],
+  "properties": {
+    "format": { "const": "podo.replay" },
+    "format_version": { "const": 1 },
+    "engine": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": { "name": { "const": "CombatCore" }, "version": { "type": "string", "minLength": 1 } }
+    },
+    "matrix_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "seed": { "type": "integer", "minimum": 0 },
+    "config": {
+      "type": "object",
+      "required": ["tick_ms", "match_duration_ms", "arena", "teams"],
+      "properties": {
+        "tick_ms": { "const": 16 },
+        "match_duration_ms": { "type": "integer", "exclusiveMinimum": 0 },
+        "arena": { "type": "string", "minLength": 1 },
+        "teams": {
+          "type": "object",
+          "required": ["a", "b"],
+          "properties": { "a": { "$ref": "#/$defs/team" }, "b": { "$ref": "#/$defs/team" } }
+        }
+      }
+    },
+    "inputs": { "type": "array", "items": { "$ref": "#/$defs/inputFrame" } },
+    "expected": { "type": "object" },
+    "tail": {
+      "type": "object",
+      "required": ["frames_total", "final_state_hash", "outcome"],
+      "properties": {
+        "frames_total": { "type": "integer", "exclusiveMinimum": 0 },
+        "final_state_hash": { "type": "string", "pattern": "^sha256:" },
+        "rejected_inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["t", "side", "seat", "action", "reason"],
+            "properties": {
+              "t": { "type": "integer", "minimum": 0 },
+              "side": { "enum": ["a", "b"] },
+              "seat": { "type": "integer", "minimum": 0, "maximum": 2 },
+              "action": { "$ref": "#/$defs/action" },
+              "reason": { "type": "string" }
+            }
+          }
+        },
+        "outcome": {
+          "type": "object",
+          "required": ["winner", "reason", "score"],
+          "properties": {
+            "winner": { "enum": ["a", "b", "draw"] },
+            "reason": { "enum": ["ko", "timeout_score", "forfeit"] },
+            "score": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "minimum": 0 } }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "team": {
+      "type": "object",
+      "required": ["kits"],
+      "properties": { "kits": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "minLength": 1 } } }
+    },
+    "inputFrame": {
+      "type": "object",
+      "required": ["t", "side", "seat", "input"],
+      "properties": {
+        "t": { "type": "integer", "minimum": 0 },
+        "side": { "enum": ["a", "b"] },
+        "seat": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "input": {
+          "type": "object",
+          "properties": {
+            "move": {
+              "type": ["object", "null"],
+              "properties": { "x": { "enum": [-1, 0, 1] }, "y": { "enum": [-1, 0, 1] } },
+              "required": ["x", "y"]
+            },
+            "aim": {
+              "type": ["object", "null"],
+              "properties": { "x": { "type": "number" }, "y": { "type": "number" } },
+              "required": ["x", "y"]
+            },
+            "actions": { "type": "array", "items": { "$ref": "#/$defs/action" }, "uniqueItems": true }
+          }
+        }
+      }
+    },
+    "action": {
+      "enum": ["basic", "q", "e", "dodge", "guard_on", "guard_off", "ultimate", "switch", "ball"]
+    }
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "families": {
+    "test_antic_rpg": [
+      {
+        "name": "runtime-no-rpg",
+        "status": "PASS",
+        "reason": "",
+        "ms": 44.76
+      },
+      {
+        "name": "kits-fijos",
+        "status": "PASS",
+        "reason": "",
+        "ms": 20.66
+      }
+    ],
+    "test_captura": [
+      {
+        "name": "spec-anchors",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.46
+      },
+      {
+        "name": "spec-monotonic-hp",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.36
+      },
+      {
+        "name": "spec-monotonic-ball",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.36
+      },
+      {
+        "name": "combatcore-capture",
+        "status": "BLOCKED",
+        "reason": "captura = sem.3 (usa CombatCore.rng sembrado); aún no cableada en CombatCore",
+        "ms": 42.18
+      }
+    ],
+    "test_cooldowns": [
+      {
+        "name": "constantes",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.04
+      },
+      {
+        "name": "switch-3.9",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.01
+      },
+      {
+        "name": "switch-4.0",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "switch-4.1",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "switch-10",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-0.0",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-0.75",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-1.49",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-1.5",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-1.51",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      },
+      {
+        "name": "vuln-negativo",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.0
+      }
+    ],
+    "test_dano": [
+      {
+        "name": "dano-neutro",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.15
+      },
+      {
+        "name": "dano-doble",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.06
+      },
+      {
+        "name": "dano-mitad",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.04
+      },
+      {
+        "name": "dano-inmune",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.08
+      },
+      {
+        "name": "dano-vulnerable",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.07
+      },
+      {
+        "name": "dano-guardia",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.04
+      },
+      {
+        "name": "dano-vuln-guardia",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-ultimate",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-ult-doble",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-perfect",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-perfect-prio",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-fixedpoint",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.03
+      },
+      {
+        "name": "dano-explora-combos",
+        "status": "PASS",
+        "reason": "",
+        "ms": 4.49
+      },
+      {
+        "name": "dano-determinista",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.08
+      },
+      {
+        "name": "dano-con-canonica",
+        "status": "PASS",
+        "reason": "",
+        "ms": 2.28
+      }
+    ],
+    "test_determinismo": [
+      {
+        "name": "determinismo-10k",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1057.58
+      },
+      {
+        "name": "contract-apply-advance",
+        "status": "PASS",
+        "reason": "",
+        "ms": 3.87
+      },
+      {
+        "name": "replay-roundtrip",
+        "status": "PASS",
+        "reason": "",
+        "ms": 37.83
+      }
+    ],
+    "test_direccionado": [
+      {
+        "name": "tb-distancia",
+        "status": "PASS",
+        "reason": "",
+        "ms": 2.2
+      },
+      {
+        "name": "tb-angulo",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.93
+      },
+      {
+        "name": "tb-eid",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.75
+      },
+      {
+        "name": "tb-fuera-alcance",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.54
+      },
+      {
+        "name": "tb-banco-no-objetivo",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.58
+      }
+    ],
+    "test_kits_data": [
+      {
+        "name": "all-kits-cargan",
+        "status": "PASS",
+        "reason": "",
+        "ms": 3.7
+      },
+      {
+        "name": "default-teams-funciona",
+        "status": "PASS",
+        "reason": "",
+        "ms": 4.71
+      },
+      {
+        "name": "velocidad-doc",
+        "status": "PASS",
+        "reason": "",
+        "ms": 8.1
+      }
+    ],
+    "test_orbs": [
+      {
+        "name": "orb-team-a",
+        "status": "PASS",
+        "reason": "",
+        "ms": 6.08
+      },
+      {
+        "name": "orb-team-b",
+        "status": "PASS",
+        "reason": "",
+        "ms": 5.4
+      }
+    ],
+    "test_performance": [
+      {
+        "name": "partida-5min-headless",
+        "status": "PASS",
+        "reason": "",
+        "ms": 2409.38
+      },
+      {
+        "name": "tick-p99",
+        "status": "PASS",
+        "reason": "",
+        "ms": 158.16
+      }
+    ],
+    "test_tipos": [
+      {
+        "name": "version-pinned",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.11
+      },
+      {
+        "name": "shape-18x18",
+        "status": "PASS",
+        "reason": "",
+        "ms": 1.09
+      },
+      {
+        "name": "count-vector",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.97
+      },
+      {
+        "name": "inmunidades-exactas",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.97
+      },
+      {
+        "name": "diagonal",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.82
+      },
+      {
+        "name": "c1-corregido",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.7
+      },
+      {
+        "name": "oddish-rama-0-5",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.61
+      },
+      {
+        "name": "dual-type-spec",
+        "status": "PASS",
+        "reason": "",
+        "ms": 0.96
+      },
+      {
+        "name": "engine-load-canonical",
+        "status": "PASS",
+        "reason": "",
+        "ms": 2.34
+      },
+      {
+        "name": "engine-default-matrix",
+        "status": "PASS",
+        "reason": "",
+        "ms": 3.91
+      }
+    ]
+  },
+  "totals": {
+    "PASS": 56,
+    "FAIL": 0,
+    "BLOCKED": 1
+  },
+  "ready": false,
+  "generated": "2026-10-18 02:22:54"
+}

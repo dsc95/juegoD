@@ -1,0 +1,53 @@
+{
+  "kit_id": "pikachu",
+  "name": "Pikachu",
+  "kind": "fighter",
+  "type": "electric",
+  "role": "carry",
+  "stats": { "max_hp": 95, "move_speed": 1.15, "weight": 1.0 },
+  "abilities": {
+    "basic": {
+      "id": "pikachu_basic",
+      "name": "Chispa",
+      "kind": "combo",
+      "damage": 5,
+      "hits": 3,
+      "range": 1.2,
+      "windup_ms": 100,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "pikachu_q",
+      "name": "Rayo Voltio",
+      "kind": "dash_strike",
+      "damage": 18,
+      "hits": 1,
+      "range": 2.4,
+      "windup_ms": 120,
+      "cooldown_ms": 7000
+    },
+    "e": {
+      "id": "pikachu_e",
+      "name": "Cola Ferro",
+      "kind": "evade_strike",
+      "damage": 12,
+      "hits": 1,
+      "range": 1.0,
+      "windup_ms": 100,
+      "cooldown_ms": 9000,
+      "effects": [{ "type": "apply_state", "state": "stagger", "ms": 400 }]
+    },
+    "ultimate": {
+      "id": "pikachu_ult",
+      "name": "Onda Eléctrica",
+      "kind": "aoe",
+      "damage": 34,
+      "hits": 1,
+      "range": 2.2,
+      "windup_ms": 300,
+      "cooldown_ms": 0
+    }
+  },
+  "cooldowns": { "dodge_ms": 1500 },
+  "wild": null
+}

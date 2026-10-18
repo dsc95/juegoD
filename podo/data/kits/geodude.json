@@ -1,0 +1,33 @@
+{
+  "kit_id": "geodude",
+  "name": "Geodude",
+  "kind": "wild",
+  "type": "rock",
+  "role": "flex",
+  "stats": { "max_hp": 60, "move_speed": 0.9, "weight": 1.2 },
+  "abilities": {
+    "basic": {
+      "id": "geodude_basic",
+      "name": "Piedra Rodante",
+      "kind": "combo",
+      "damage": 5,
+      "hits": 2,
+      "range": 1.2,
+      "windup_ms": 110,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "geodude_q",
+      "name": "Lanzamiento de Roca",
+      "kind": "strike",
+      "damage": 9,
+      "hits": 1,
+      "range": 1.8,
+      "windup_ms": 130,
+      "cooldown_ms": 6500
+    }
+  },
+  "cooldowns": { "dodge_ms": 1500 },
+  "wild": { "base_catch": 1.0 },
+  "notes": "Trío ROCA, jefe de arena_001 (Q3 aprobada por el cliente, 2026-10-18): estructura simplificada tipo wild (básica + 1 habilidad, sin ultimate) por indicación del Jefe — mismo loader, data only. M0: no spawnea como wild capturable (base_catch neutro para que la estructura sea válida)."
+}

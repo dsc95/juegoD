@@ -1,0 +1,38 @@
+{
+  "format": "podo.replay",
+  "format_version": 1,
+  "engine": { "name": "CombatCore", "version": "0.0.0-dev" },
+  "matrix_version": "1.0.0",
+  "seed": 42,
+  "config": {
+    "tick_ms": 16,
+    "match_duration_ms": 4800,
+    "arena": "arena_001",
+    "teams": {
+      "a": { "kits": ["pikachu", "snorlax", "gardevoir"] },
+      "b": { "kits": ["snorlax", "pikachu", "gardevoir"] }
+    }
+  },
+  "inputs": [
+    { "t": 0,   "side": "a", "seat": 0, "input": { "move": { "x": 0, "y": -1 }, "aim": null, "actions": [] } },
+    { "t": 0,   "side": "b", "seat": 0, "input": { "move": { "x": 0, "y": 1 },  "aim": null, "actions": [] } },
+    { "t": 10,  "side": "a", "seat": 0, "input": { "move": { "x": 0, "y": -1 }, "aim": null, "actions": ["basic"] } },
+    { "t": 40,  "side": "a", "seat": 0, "input": { "move": { "x": 1, "y": 0 },  "aim": null, "actions": ["dodge"] } },
+    { "t": 100, "side": "b", "seat": 0, "input": { "move": { "x": 0, "y": 1 },  "aim": null, "actions": ["guard_on"] } },
+    { "t": 200, "side": "a", "seat": 0, "input": { "move": { "x": 0, "y": -1 }, "aim": null, "actions": ["switch"] } },
+    { "t": 210, "side": "a", "seat": 0, "input": { "move": { "x": 0, "y": -1 }, "aim": null, "actions": ["switch"] } },
+    { "t": 210, "side": "b", "seat": 0, "input": { "move": { "x": 0, "y": 1 },  "aim": null, "actions": ["guard_off"] } }
+  ],
+  "expected": {
+    "_note": "Muestra de FORMATO (no de resultado): valida parsing, semántica de hold, switch aceptado t=200 y switch RECHAZADO t=210 (cooldown 4000ms = 250 ticks). El tail debe regenerarse con un run real de CombatCore; el hash es placeholder.",
+    "rejected_inputs_count": 1
+  },
+  "tail": {
+    "frames_total": 300,
+    "final_state_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "rejected_inputs": [
+      { "t": 210, "side": "a", "seat": 0, "action": "switch", "reason": "cooldown" }
+    ],
+    "outcome": { "winner": "a", "reason": "timeout_score", "score": [2, 0] }
+  }
+}

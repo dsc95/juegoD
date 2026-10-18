@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "podo://schema/medal_region",
+  "title": "PODO RegionMedalTree (10 regiones x 8 arenas + campeonato)",
+  "type": "object",
+  "required": ["region_id", "order", "arenas", "championship"],
+  "properties": {
+    "region_id": { "type": "string", "minLength": 1 },
+    "order": { "type": "integer", "minimum": 1, "maximum": 10 },
+    "arenas": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": { "$ref": "#/$defs/arenaEntry" }
+    },
+    "championship": {
+      "type": "object",
+      "required": ["title_id", "unlock"],
+      "properties": {
+        "title_id": { "type": "string", "minLength": 1 },
+        "unlock": { "$ref": "#/$defs/unlock" }
+      }
+    }
+  },
+  "$defs": {
+    "arenaEntry": {
+      "type": "object",
+      "required": ["arena_id", "gym_type", "medal_id", "unlock", "m0"],
+      "properties": {
+        "arena_id": { "type": "string", "minLength": 1 },
+        "gym_type": { "$ref": "#/$defs/typeId" },
+        "medal_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "unlock": { "$ref": "#/$defs/unlock" },
+        "m0": { "type": "boolean", "description": "true = jugable en M0; false = placeholder M1" }
+      }
+    },
+    "unlock": {
+      "type": "object",
+      "required": ["kind", "ref"],
+      "properties": {
+        "kind": { "enum": ["kit", "arena", "region", "mode", "cosmetic"] },
+        "ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "typeId": {
+      "enum": ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel",
+               "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"]
+    }
+  }
+}

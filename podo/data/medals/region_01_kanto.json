@@ -1,0 +1,67 @@
+{
+  "region_id": "kanto",
+  "order": 1,
+  "arenas": [
+    {
+      "arena_id": "arena_001",
+      "gym_type": "rock",
+      "medal_id": "kanto_medal_01",
+      "unlock": { "kind": "arena", "ref": "arena_002" },
+      "m0": true
+    },
+    {
+      "arena_id": "arena_002",
+      "gym_type": "electric",
+      "medal_id": "kanto_medal_02",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_02" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_003",
+      "gym_type": "ice",
+      "medal_id": "kanto_medal_03",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_03" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_004",
+      "gym_type": "grass",
+      "medal_id": "kanto_medal_04",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_04" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_005",
+      "gym_type": "fighting",
+      "medal_id": "kanto_medal_05",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_05" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_006",
+      "gym_type": "rock",
+      "medal_id": "kanto_medal_06",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_06" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_007",
+      "gym_type": "ghost",
+      "medal_id": "kanto_medal_07",
+      "unlock": { "kind": "kit", "ref": "tbd_m1_kanto_07" },
+      "m0": false
+    },
+    {
+      "arena_id": "arena_008",
+      "gym_type": "dragon",
+      "medal_id": "kanto_medal_08",
+      "unlock": { "kind": "arena", "ref": "kanto_championship" },
+      "m0": false
+    }
+  ],
+  "championship": {
+    "title_id": "kanto_champion",
+    "unlock": { "kind": "region", "ref": "johto" }
+  },
+  "notes": "Estructura canónica de la región 1 (10x8+1). M0 juega SOLO arena_001 (m0=true); las 7 restantes y los kits de recompensa son placeholders M1 (ref tbd_m1_*). Tipo de gimnasio = flavor + futuro criterio de matchup; no altera reglas en M0. La medalla de M0 (kanto_medal_01) desbloquea arena_002, que se habilita en M1."
+}

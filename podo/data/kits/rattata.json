@@ -1,0 +1,33 @@
+{
+  "kit_id": "rattata",
+  "name": "Rattata",
+  "kind": "wild",
+  "type": "normal",
+  "role": "flex",
+  "stats": { "max_hp": 45, "move_speed": 1.0, "weight": 0.7 },
+  "abilities": {
+    "basic": {
+      "id": "rattata_basic",
+      "name": "Arañazo",
+      "kind": "combo",
+      "damage": 4,
+      "hits": 2,
+      "range": 0.9,
+      "windup_ms": 90,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "rattata_q",
+      "name": "Ataque Rápido",
+      "kind": "strike",
+      "damage": 8,
+      "hits": 1,
+      "range": 1.0,
+      "windup_ms": 80,
+      "cooldown_ms": 6000
+    }
+  },
+  "cooldowns": { "dodge_ms": 1500 },
+  "wild": { "base_catch": 1.0 },
+  "notes": "OBLIGATORIO (kickoff Jefe): baseline de la curva de captura. Matchup NEUTRO x1 contra los 3 kits de M0 (matriz v1: normal vs electric/normal/psychic), así que aísla el factor HP + ball en la calibración de C4."
+}

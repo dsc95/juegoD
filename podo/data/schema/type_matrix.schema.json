@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "podo://schema/type_matrix",
+  "title": "PODO TypeMatrix (matriz canónica 18x18)",
+  "type": "object",
+  "required": ["id", "version", "types", "matrix"],
+  "properties": {
+    "id": { "const": "podo.type_matrix" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "types": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": { "$ref": "#/$defs/typeId" },
+      "uniqueItems": true
+    },
+    "matrix": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/typeId" },
+      "additionalProperties": { "$ref": "#/$defs/matrixRow" },
+      "minProperties": 18,
+      "maxProperties": 18
+    }
+  },
+  "$defs": {
+    "typeId": {
+      "enum": ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel",
+               "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"]
+    },
+    "matrixRow": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/typeId" },
+      "additionalProperties": { "enum": [0, 0.5, 1, 2] },
+      "minProperties": 18,
+      "maxProperties": 18
+    }
+  }
+}

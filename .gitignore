@@ -1,0 +1,30 @@
+# ============ PODO M0 — repo del curso (root = workspace reflexion-agente) ============
+# Decisión del Jefe (18-10): repo en la raíz para versionar docs + podo/.
+# Regla: NADA sensible, NADA ajeno al proyecto. Verificación: 4e (checklist del primer commit).
+
+# --- Secrets (NUNCA en el repo) ---
+.env
+*.env
+.env.*
+
+# --- Archivos ajenos al proyecto (curso LangGraph anterior, materiales, PII) ---
+CDR_*.xlsx
+manuales-usuario-plataformas-iacu/
+.qantica/
+main.py
+chains.py
+pyproject.toml
+
+# --- Entornos / IDE / tooling local ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.idea/
+.claude/
+
+# --- Artefactos de runtime (regla de seguridad 4e) ---
+logs/
+saves/
+*.replay.jsonl
+replays/            # replays de partidas reales (TTY: podo/replays/*.json) — NUNCA al repo

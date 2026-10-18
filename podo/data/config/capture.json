@@ -1,0 +1,18 @@
+{
+  "id": "podo.capture",
+  "version": "1.0.0",
+  "formula": "p = min(p_cap, base_catch * ball_mult * (1 - hp_pct) ** hp_exp)",
+  "p_cap": 0.9,
+  "hp_exp": 1.5,
+  "balls": {
+    "poke_ball": 1.0,
+    "great_ball": 1.5,
+    "ultra_ball": 2.0
+  },
+  "rng": "PRNG sembrado del core (seed del replay). Mismo seed + mismo hp_pct + misma ball + mismo base_catch => mismo resultado (C4, Bloque 6.28).",
+  "c4_validation": {
+    "case_a": "hp_pct=0.10, ultra_ball, base_catch=1.0 -> min(0.9, 1.0*2.0*0.9^1.5=1.7076) = 0.9  >= 0.85  OK",
+    "case_b": "hp_pct=0.90, poke_ball, base_catch=1.0 -> 1.0*1.0*0.1^1.5 = 0.0316  <= 0.15  OK"
+  },
+  "calibration": "Rattata (wild, normal) tiene base_catch=1.0 y matchup neutro x1 contra los 3 kits de M0: es la baseline que aísla el factor HP+ball para calibrar la curva (kickoff del Jefe)."
+}

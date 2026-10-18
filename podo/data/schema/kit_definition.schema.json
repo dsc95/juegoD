@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "podo://schema/kit_definition",
+  "title": "PODO KitDefinition (data-driven; un diseñador agrega kits sin tocar código)",
+  "type": "object",
+  "required": ["kit_id", "name", "kind", "type", "role", "stats", "abilities"],
+  "properties": {
+    "kit_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["fighter", "wild"] },
+    "type": { "$ref": "#/$defs/typeId" },
+    "role": { "enum": ["carry", "defender", "support", "flex"] },
+    "stats": {
+      "type": "object",
+      "required": ["max_hp", "move_speed", "weight"],
+      "properties": {
+        "max_hp": { "type": "number", "exclusiveMinimum": 0 },
+        "move_speed": { "type": "number", "exclusiveMinimum": 0 },
+        "weight": { "type": "number", "exclusiveMinimum": 0, "description": "masa para knockback/empuje (no escala daño: cero RPG)" }
+      }
+    },
+    "abilities": {
+      "type": "object",
+      "required": ["basic"],
+      "properties": {
+        "basic": { "$ref": "#/$defs/ability" },
+        "q": { "$ref": "#/$defs/ability" },
+        "e": { "$ref": "#/$defs/ability" },
+        "ultimate": { "$ref": "#/$defs/ability" }
+      },
+      "additionalProperties": false
+    },
+    "cooldowns": {
+      "type": "object",
+      "properties": {
+        "dodge_ms": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "wild": {
+      "type": ["object", "null"],
+      "properties": {
+        "base_catch": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "factor de captura en la curva (data/config/capture.json); 1.0 = baseline" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "wild" } } },
+      "then": {
+        "properties": { "abilities": { "not": { "required": ["ultimate"] } } },
+        "required": ["wild"]
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "fighter" } } },
+      "then": { "not": { "required": ["wild"] } }
+    }
+  ],
+  "$defs": {
+    "typeId": {
+      "enum": ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel",
+               "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"]
+    },
+    "ability": {
+      "type": "object",
+      "required": ["id", "name", "kind", "damage", "range", "windup_ms", "cooldown_ms"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": ["combo", "strike", "dash_strike", "evade_strike", "control", "aoe", "team_aoe", "ultimate"]
+        },
+        "damage": { "type": "number", "minimum": 0, "description": "daño total del ability (para combo: por hit ver 'hits')" },
+        "hits": { "type": "integer", "minimum": 1, "maximum": 5, "default": 1 },
+        "range": { "type": "number", "minimum": 0, "description": "0 para efectos de zona aliados (ej. team_shield)" },
+        "windup_ms": { "type": "integer", "minimum": 0 },
+        "cooldown_ms": { "type": "integer", "minimum": 0, "description": "0 solo para 'basic' (rate-limit del combo)" },
+        "effects": { "type": "array", "items": { "$ref": "#/$defs/effect" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "ultimate" } } },
+          "then": { "properties": { "cooldown_ms": { "const": 0 } } }
+        }
+      ]
+    },
+    "effect": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": ["apply_state", "knockback", "pushback", "heal", "shield", "reflect", "team_shield", "interrupt"]
+        },
+        "state": { "enum": ["stagger", "stun", "slow"] },
+        "ms": { "type": "integer", "minimum": 0, "description": "duración (estados, escudos, reflects)" },
+        "value": { "type": "number", "description": "magnitud según type (distancia de knockback, ratio de shield/reflect...)" },
+        "radius": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

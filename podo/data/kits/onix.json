@@ -1,0 +1,34 @@
+{
+  "kit_id": "onix",
+  "name": "Onix",
+  "kind": "wild",
+  "type": "rock",
+  "role": "defender",
+  "stats": { "max_hp": 110, "move_speed": 0.7, "weight": 2.5 },
+  "abilities": {
+    "basic": {
+      "id": "onix_basic",
+      "name": "Cola de Piedra",
+      "kind": "combo",
+      "damage": 8,
+      "hits": 2,
+      "range": 1.5,
+      "windup_ms": 140,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "onix_q",
+      "name": "Colapso",
+      "kind": "dash_strike",
+      "damage": 16,
+      "hits": 1,
+      "range": 2.2,
+      "windup_ms": 180,
+      "cooldown_ms": 8000,
+      "effects": [{ "type": "knockback", "value": 2.2 }]
+    }
+  },
+  "cooldowns": { "dodge_ms": 1800 },
+  "wild": { "base_catch": 1.0 },
+  "notes": "Ancla del trío ROCA, jefe de arena_001 (Q3 aprobada por el cliente, 2026-10-18): estructura simplificada tipo wild (básica + 1 habilidad, sin ultimate) por indicación del Jefe — mismo loader, data only. M0: no spawnea como wild capturable (base_catch neutro para que la estructura sea válida). Matchup real vs el trío M0 (matriz v1.0.0): snorlax(normal)→roca = 0.5x (switch forzado, como pidió el cliente); electric y psychic <-> roca = 1x (NEUTRO: los 2x/0.5x eléctricos que describió el brief no están en el chart oficial — ver TYPE-MATRIX.md §5)."
+}

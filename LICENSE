@@ -1,0 +1,40 @@
+PODO — Pokémon Odisea (M0) · Licencia
+=======================================
+
+Este trabajo es un **entregable de curso, de uso NO COMERCIAL**.
+
+La obra completa (código, datos, documentación y fixtures en este repositorio)
+se publica bajo **Creative Commons Atribución-NoComercial 4.0 Internacional
+(CC BY-NC 4.0)**. Texto legal completo:
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Condiciones (resumen del deed):
+1. **Atribución (BY)**: si compartís el material, indicá a los autores y al
+   contexto de origen, y señalá si hubo modificaciones.
+2. **NoComercial (NC)**: NO se permite usar el material con fines comerciales.
+3. **Sin restricciones adicionales**: no podés aplicar medidas legales o
+   tecnológicas que restrinjan lo que la licencia permite.
+4. Si lo adaptás o transformás, podés distribuir la nueva creación bajo esta
+   misma licencia.
+
+Aviso de IP de terceros (PODO):
+- Las referencias a nombres, especies y conceptos de la franquicia Pokémon
+  (Nintendo / Creatures Inc. / GAME FREAK) se usan SOLO como sabor (flavor) en
+  este entregable de curso no comercial. Este trabajo **no reclama derechos
+  sobre esa IP**.
+- Bajo esta licencia NO se autoriza distribución comercial. Si alguna parte de
+  este proyecto se distribuyera comercialmente, debe reemplazarse primero toda
+  referencia a la IP de Pokémon por IP original (requisito legal del brief).
+- El motor (CombatCore), los datos y la documentación original de este repo no
+  pertenecen a la franquicia y quedan bajo CC BY-NC 4.0.
+
+Exclusiones:
+- Los archivos excluidos por .gitignore (credenciales, PII, artefactos de
+  runtime) NO forman parte de la obra licenciada.
+- Dependencias de terceros (si se agregan) conservan sus licencias propias.
+
+Sin garantía: se entrega "tal cual", sin garantía de ningún tipo, expresada o
+implícita (usabilidad, aptitud para un fin, no infracción).
+
+— Equipo reflexion-agente (PODO M0), 2026-10-18.
+  Draft: a8 (Arquitecto de datos), aprobado por ab (Jefe).

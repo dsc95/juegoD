@@ -1,0 +1,54 @@
+{
+  "kit_id": "gardevoir",
+  "name": "Gardevoir",
+  "kind": "fighter",
+  "type": "psychic",
+  "role": "support",
+  "stats": { "max_hp": 90, "move_speed": 1.0, "weight": 1.0 },
+  "abilities": {
+    "basic": {
+      "id": "gardevoir_basic",
+      "name": "Ola Psíquica",
+      "kind": "combo",
+      "damage": 6,
+      "hits": 3,
+      "range": 1.6,
+      "windup_ms": 100,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "gardevoir_q",
+      "name": "Psíquico",
+      "kind": "strike",
+      "damage": 16,
+      "hits": 1,
+      "range": 3.0,
+      "windup_ms": 150,
+      "cooldown_ms": 8000,
+      "effects": [{ "type": "interrupt" }]
+    },
+    "e": {
+      "id": "gardevoir_e",
+      "name": "Pantalla de Luz",
+      "kind": "control",
+      "damage": 0,
+      "hits": 1,
+      "range": 0,
+      "windup_ms": 150,
+      "cooldown_ms": 12000,
+      "effects": [{ "type": "team_shield", "ms": 3000, "value": 0.4 }]
+    },
+    "ultimate": {
+      "id": "gardevoir_ult",
+      "name": "Luna Psíquica",
+      "kind": "team_aoe",
+      "damage": 36,
+      "hits": 1,
+      "range": 2.5,
+      "windup_ms": 300,
+      "cooldown_ms": 0
+    }
+  },
+  "cooldowns": { "dodge_ms": 1500 },
+  "wild": null
+}

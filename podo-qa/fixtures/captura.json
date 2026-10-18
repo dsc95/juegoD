@@ -1,0 +1,10 @@
+{
+  "subject": "Rattata",
+  "note": "Baseline neutro (x1 vs los 3 kits) para aislar el factor (HP + ball) de la captura. Anclas = FORMULARIO C4 (ilustrativas; la curva exacta la fija 31/a8).",
+  "anchors": [
+    {"hp": 0.10, "ball": "Ultra Ball", "p_min": 0.85},
+    {"hp": 0.90, "ball": "Poké Ball",  "p_max": 0.15}
+  ],
+  "probe_hp":    [0.10, 0.20, 0.30, 0.50, 0.70, 0.90],
+  "probe_balls": ["Poké Ball", "Great Ball", "Ultra Ball"]
+}

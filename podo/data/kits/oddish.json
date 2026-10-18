@@ -1,0 +1,34 @@
+{
+  "kit_id": "oddish",
+  "name": "Oddish",
+  "kind": "wild",
+  "type": "grass",
+  "role": "flex",
+  "stats": { "max_hp": 50, "move_speed": 0.85, "weight": 0.7 },
+  "abilities": {
+    "basic": {
+      "id": "oddish_basic",
+      "name": "Hoja Afilada",
+      "kind": "combo",
+      "damage": 4,
+      "hits": 2,
+      "range": 1.4,
+      "windup_ms": 100,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "oddish_q",
+      "name": "Pólen Cegador",
+      "kind": "strike",
+      "damage": 10,
+      "hits": 1,
+      "range": 1.6,
+      "windup_ms": 120,
+      "cooldown_ms": 7000,
+      "effects": [{ "type": "apply_state", "state": "slow", "ms": 2000 }]
+    }
+  },
+  "cooldowns": { "dodge_ms": 1500 },
+  "wild": { "base_catch": 1.0 },
+  "notes": "STRETCH (kickoff Jefe): valida una rama de resistencia real de la matriz contra M0. CORRECCIÓN del kickoff: Planta NO resiste Psíquico (psíquico vs planta = x1, matriz v1). La rama x0.5 que Oddish ejercita contra los 3 kits es electric -> grass = 0.5x (Pikachu hace medio daño a Oddish). Snorlax (normal) y Gardevoir (psíquico) siguen siendo x1."
+}

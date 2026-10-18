@@ -1,0 +1,54 @@
+{
+  "kit_id": "snorlax",
+  "name": "Snorlax",
+  "kind": "fighter",
+  "type": "normal",
+  "role": "defender",
+  "stats": { "max_hp": 130, "move_speed": 0.8, "weight": 1.6 },
+  "abilities": {
+    "basic": {
+      "id": "snorlax_basic",
+      "name": "Golpe Pesado",
+      "kind": "combo",
+      "damage": 10,
+      "hits": 2,
+      "range": 1.0,
+      "windup_ms": 180,
+      "cooldown_ms": 0
+    },
+    "q": {
+      "id": "snorlax_q",
+      "name": "Impacto Corporal",
+      "kind": "dash_strike",
+      "damage": 20,
+      "hits": 1,
+      "range": 2.0,
+      "windup_ms": 200,
+      "cooldown_ms": 9000,
+      "effects": [{ "type": "knockback", "value": 2.0 }]
+    },
+    "e": {
+      "id": "snorlax_e",
+      "name": "Reflejo",
+      "kind": "control",
+      "damage": 8,
+      "hits": 1,
+      "range": 0.8,
+      "windup_ms": 100,
+      "cooldown_ms": 10000,
+      "effects": [{ "type": "reflect", "ms": 2500, "value": 0.5 }]
+    },
+    "ultimate": {
+      "id": "snorlax_ult",
+      "name": "Giga Impacto",
+      "kind": "aoe",
+      "damage": 40,
+      "hits": 1,
+      "range": 1.8,
+      "windup_ms": 400,
+      "cooldown_ms": 0
+    }
+  },
+  "cooldowns": { "dodge_ms": 1800 },
+  "wild": null
+}
